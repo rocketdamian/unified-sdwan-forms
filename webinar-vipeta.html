@@ -73,6 +73,7 @@
       color: red;
     }
 
+
     .btn-group-lg>.btn,
     .btn-lg {
       padding: .2rem 4rem;
@@ -87,7 +88,7 @@
       border-color: #3E5073;
     }
   </style>
-  <title>Clinica SDWAN - Registro</title>
+  <title>SDWAN - SOFTWARE-DEFINED WAN (VIPTELA) - Registro</title>
 </head>
 
 <body>
@@ -96,8 +97,10 @@
       <div id="container" class="container form-container">
         <div class="row">
           <div class="col-sm-10 offset-sm-1">
-            <img src="img/sdwan-logo.png" class="mx-auto d-block header-logo text-center">
-            <h5 class="text-center bold" style="margin: 26px 0px;">CLÍNICA SD-WAN</h5>
+            <img src="img/sdwan-logo-2.png" class="mx-auto d-block header-logo text-center">
+            <br>
+            <h5 class="text-center bold" style="margin:0px;">WEBINAR</h5>
+            <h5 class="text-center" style="margin:0px;">SOFTWARE-DEFINED WAN (VIPTELA)</h5>
             <p class="text-center" style="padding: 10px 70px;">
               Regístrate para asistir a nuestro seminario
               dónde conocerás los beneficios de SDWAN.
@@ -140,52 +143,7 @@
                     <textarea class="form-control" id="mensaje" name="mensaje" rows="3"></textarea>
                   </div>
                 </div>
-                <div class="form-group row">
-                  <label for="hospedaje" class="col-sm-2 col-form-label">Hopedaje</label>
-                  <div class="col-sm-2">
-                    <select class="form-control" name="hospedaje" id="hospedaje">
-                      <option>Si</option>
-                      <option>No</option>
-                    </select>
-                  </div>
-                  <label for="locacion" class="col-sm-2 col-form-label">Locación</label>
-                  <div class="col-sm-6">
-                    <select class="form-control" name="location" id="locacion">
-                      <option>CDMX</option>
-                      <option>Guadalajara</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="dia-llegada" class="col-sm-3 col-form-label">Día de llegada*</label>
-                  <div class="col-sm-3">
-                    <input type="text" class="form-control datepicker" name="dia-llegada" id="dia-llegada">
-                  </div>
-                  <label for="dia-salida" class="col-sm-3 col-form-label">Día de salida*</label>
-                  <div class="col-sm-3">
-                    <input type="text" class="form-control datepicker" name="dia-salida" id="dia-salida">
-                  </div>
-                </div>
-                <div class="row">
-                  <label class="col-sm-12 col-form-label bold">*Unified no corre con los gastos de traslado.</label>
-                </div>
-                <div class="form-group row">
-                  <div class="col-sm-2">
-                    <img src="img/luchador-head.png" class="mx-auto d-block" style="width: 38px;">
-                  </div>
-                  <label class="col-sm-4 col-form-label" for="numero-boletos">
-                    No. boletos actividad
-                  </label>
-                  <div class="col-sm-2">
-                    <select class="form-control" name="numero-boletos" id="numero-boletos">
-                      <option>1</option>
-                      <option>2</option>
-                    </select>
-                  </div>
-                  <label class="col-sm-4 col-form-label">
-                    *Máximo 2 por persona
-                  </label>
-                </div>
+
                 <div class="form-group row">
                   <div class="col-sm-12 text-center" style="margin-top: 26px;margin-bottom: 12px;">
                     <button id="submit-form" type="submit" class="btn btn-primary btn-lg rounded-pill">Comenzar</button>
@@ -212,7 +170,7 @@
           <p>Gracias por tu registro!</p>
         </div>
         <div class="modal-footer">
-          <button  type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>
@@ -247,8 +205,6 @@
             required: true,
             email: true
           },
-          'dia-llegada': 'required',
-          'dia-salida': 'required'
         },
         messages: {
           nombre: "Ingrese Nombre",
@@ -256,8 +212,6 @@
           email: "Ingrese Mail valido",
           telefono: "Ingrese Telefono",
           puesto: "Ingrese Puesto",
-          'dia-llegada': 'Seleccione fecha',
-          'dia-salida': 'Seleccione fecha'
         },
         submitHandler: function (form) {
           $('#submit-form').prop('disabled', true);
@@ -268,18 +222,13 @@
           body += ['Telefono: ', $('#telefono').val().trim()].join('') + '<br>';
           body += ['Email: ', $('#email').val().trim()].join('') + '<br>';
           body += ['Mesaje: ', $('#mensaje').val().trim()].join('') + '<br>';
-          body += ['Hospedaje: ', $('#hospedaje').val().trim()].join('') + '<br>';
-          body += ['Locacion: ', $('#locacion').val().trim()].join('') + '<br>';
-          body += ['Dia de llegada: ', $('#dia-llegada').val().trim()].join('') + '<br>';
-          body += ['Dia de salida: ', $('#dia-salida').val().trim()].join('') + '<br>';
-          body += ['Numero de boletos: ', $('#numero-boletos').val().trim()].join('') + '<br>';
 
           // CAMIAR POR DATOS DE SERVIDOR REAL
           Email.send({
             SecureToken: '4345f4c4-97cb-4eed-a899-bc01e97bdd4b',
             To: 'marketingun@un-mx.net',
             From: "dev@esmikegarcia.com",
-            Subject: "Nuevo registo - Clinica SDWAN",
+            Subject: "Nuevo registo - Webinar SOFTWARE-DEFINED WAN (VIPTELA)",
             Body: body
           }).then(
             function (message) {
